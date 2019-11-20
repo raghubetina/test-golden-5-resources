@@ -1,0 +1,161 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Movie #<%= @movie.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/movies" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/delete_movie/<%= @movie.id %>" class="btn btn-block btn-outline-secondary">
+          Delete movie
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Title
+      </dt>
+      <dd>
+        <%= @movie.title %>
+      </dd>
+
+      <dt>
+        Year
+      </dt>
+      <dd>
+        <%= @movie.year %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @movie.description %>
+      </dd>
+
+      <dt>
+        Released
+      </dt>
+      <dd>
+        <%= @movie.released %>
+      </dd>
+
+      <dt>
+        A time
+      </dt>
+      <dd>
+        <%= @movie.a_time %>
+      </dd>
+
+      <dt>
+        A date
+      </dt>
+      <dd>
+        <%= @movie.a_date %>
+      </dd>
+
+      <dt>
+        A datetime
+      </dt>
+      <dd>
+        <%= @movie.a_datetime %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@movie.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@movie.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Edit movie
+    </h2>
+
+    <form action="/modify_movie/<%= @movie.id %>"  method="post" >
+      <div class="form-group">
+        <label for="title">
+          Title
+        </label>
+
+        <input type="text" id="title" name="input_title" class="form-control" value="<%= @movie.title %>">
+      </div>
+
+      <div class="form-group">
+        <label for="year">
+          Year
+        </label>
+
+        <input type="text" id="year" name="input_year" class="form-control" value="<%= @movie.year %>">
+      </div>
+
+      <div class="form-group">
+        <label for="description">
+          Description
+        </label>
+
+        <textarea id="description" name="input_description" class="form-control" rows="3"><%= @movie.description %></textarea>
+      </div>
+
+      <div class="custom-control custom-checkbox mb-3">
+        <input type="checkbox" class="custom-control-input" id="released" name="input_released" value="1" <%= "checked" if @movie.released %>>
+
+        <label class="custom-control-label"
+          for="released">Released</label>
+      </div>
+
+      <div class="form-group">
+        <label for="a_time">
+          A time
+        </label>
+
+        <input type="time" id="a_time" name="input_a_time" class="form-control" value="<%= @movie.a_time %>">
+      </div>
+
+      <div class="form-group">
+        <label for="a_date">
+          A date
+        </label>
+
+        <input type="date" id="a_date" name="input_a_date" class="form-control" value="<%= @movie.a_date %>">
+      </div>
+
+      <div class="form-group">
+        <label for="a_datetime">
+          A datetime
+        </label>
+
+        <input type="datetime-local" id="a_datetime" name="input_a_datetime"
+          class="form-control" value="<%= @movie.a_datetime %>">
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Create movie
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
