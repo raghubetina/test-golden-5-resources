@@ -4,22 +4,24 @@
   <title>
     TestG5Routes
   </title>
-
-  <%= render "shared/bootstrapcdn_assets" %>
-
-  <%= csrf_meta_tags %>
   
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
-  <script src="//maps.google.com/maps/api/js?v=3.24&key=AIzaSyCOTPWiuvyyo6sKoIBzKA4-1ol-vTOIOlM"></script>
-  <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
-
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Expand the number of characters we can use in the document beyond basic ASCII 🎉 -->
   <meta charset="utf-8">
+
+  <!-- Make it responsive to small screens. Include only if you're using responsive CSS. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Rails provides built-in protection against certain types of attacks. -->
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <!-- Rendering a partial that has all the <link>s and <script>s for assets we are pulling from content-delivery networks. -->
+  <%= render "shared/cdn_assets" %>
+  
+  <!-- Helper methods that create <link>s and <script>s for all of the stylesheets and javascript files in the non-`/public/` assets folders. -->
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_pack_tag 'application' %>
+
   <style>
     body { padding-bottom: 70px }
   </style>
