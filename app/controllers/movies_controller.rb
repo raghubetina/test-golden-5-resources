@@ -26,7 +26,7 @@ class MoviesController < ApplicationController
       @movie.save
       redirect_to("/movies", { :notice => "Movie created successfully."})
     else
-      render("movies/create_validation_failures.html.erb")
+      render({ :template => "movies/create_validation_failures.html.erb" })
     end
   end
 
@@ -46,7 +46,7 @@ class MoviesController < ApplicationController
       @movie.save
       redirect_to("/movies/#{@movie.id}", {:notice => "Movie updated successfully."})
     else
-      render("movies/update_validation_failures.html.erb")
+      render({ :template => "movies/update_validation_failures.html.erb" })
     end
   end
 
