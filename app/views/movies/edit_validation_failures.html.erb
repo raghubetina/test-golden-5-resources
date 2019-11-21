@@ -1,0 +1,72 @@
+<h2>
+  Edit movie
+</h2>
+
+<% @movie.errors.full_messages.each do |validation_failure_message| %>
+  <div class="alert alert-danger">
+    <%= validation_failure_message %>
+  </div>
+<% end %>
+
+<form action="/modify_movie/<%= @movie.id %>" method="post">
+  <div class="form-group">
+    <label for="title_box">
+      Title
+    </label>
+
+    <input type="text" id="title_box" name="title_from_query" class="form-control" value="<%= @movie.title %>">
+  </div>
+
+  <div class="form-group">
+    <label for="year_box">
+      Year
+    </label>
+
+    <input type="text" id="year_box" name="year_from_query" class="form-control" value="<%= @movie.year %>">
+  </div>
+
+  <div class="form-group">
+    <label for="description_box">
+      Description
+    </label>
+
+    <textarea id="description_box" name="description_from_query" class="form-control"
+      rows="3"><%= @movie.description %></textarea>
+  </div>
+
+  <div class="custom-control custom-checkbox mb-3">
+    <input type="checkbox" class="custom-control-input" id="released_box" name="released_from_query" value="1"
+      <%= "checked" if @movie.released %>>
+
+    <label class="custom-control-label" for="released_box">Released</label>
+  </div>
+
+  <div class="form-group">
+    <label for="a_time_box">
+      A time
+    </label>
+
+    <input type="time" id="a_time_box" name="a_time_from_query" class="form-control" value="<%= @movie.a_time %>">
+  </div>
+
+  <div class="form-group">
+    <label for="a_date_box">
+      A date
+    </label>
+
+    <input type="date" id="a_date_box" name="a_date_from_query" class="form-control" value="<%= @movie.a_date %>">
+  </div>
+
+  <div class="form-group">
+    <label for="a_datetime_box">
+      A datetime
+    </label>
+
+    <input type="datetime-local" id="a_datetime_box" name="a_datetime_from_query" class="form-control"
+      value="<%= @movie.a_datetime %>">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Update movie
+  </button>
+</form>
