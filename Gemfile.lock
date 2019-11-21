@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/firstdraft/draft_generators.git
-  revision: fd26a392c47451c8c1fd43e8fdba2027f5013870
+  revision: dd1b00eed551ca480bc564b3fa24fbc755048557
   branch: rb-use-golden-5-routes
   specs:
     draft_generators (0.0.3)
