@@ -7,6 +7,25 @@ Rails.application.routes.draw do
   # READ
   match("/movies", { :controller => "movies", :action => "index", :via => "get"})
   
+  match("/movies/:id_from_path", { :controller => "movies", :action => "show", :via => "get"})
+  
+  # UPDATE
+  
+  match("/modify_movie/:id_from_path", { :controller => "movies", :action => "update", :via => "post"})
+  
+  # DELETE
+  match("/delete_movie/:id_from_path", { :controller => "movies", :action => "destroy", :via => "get"})
+
+  #------------------------------
+
+  # Routes for the Movie resource:
+
+  # CREATE
+  match("/insert_movie", { :controller => "movies", :action => "create", :via => "post"})
+          
+  # READ
+  match("/movies", { :controller => "movies", :action => "index", :via => "get"})
+  
   match("/movies/:the_movie_id", { :controller => "movies", :action => "show", :via => "get"})
   
   # UPDATE

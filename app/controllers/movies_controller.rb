@@ -6,21 +6,21 @@ class MoviesController < ApplicationController
   end
 
   def show
-    the_id = params.fetch("the_movie_id")
-    @movie = Movie.where({:id => the_id }).first
+    the_id = params.fetch("id_from_path")
+    @movie = Movie.where({:id => the_id }).at(0)
 
     render({ :template => "movies/show.html.erb" })
   end
 
   def create
     @movie = Movie.new
-    @movie.title = params.fetch("input_title")
-    @movie.year = params.fetch("input_year")
-    @movie.description = params.fetch("input_description")
-    @movie.released = params.fetch("input_released", false)
-    @movie.a_time = params.fetch("input_a_time")
-    @movie.a_date = params.fetch("input_a_date")
-    @movie.a_datetime = params.fetch("input_a_datetime")
+    @movie.title = params.fetch("title_from_query")
+    @movie.year = params.fetch("year_from_query")
+    @movie.description = params.fetch("description_from_query")
+    @movie.released = params.fetch("released_from_query", false)
+    @movie.a_time = params.fetch("a_time_from_query")
+    @movie.a_date = params.fetch("a_date_from_query")
+    @movie.a_datetime = params.fetch("a_datetime_from_query")
 
     if @movie.valid?
       @movie.save
@@ -31,16 +31,16 @@ class MoviesController < ApplicationController
   end
 
   def update
-    the_id = params.fetch("the_movie_id")
+    the_id = params.fetch("id_from_path")
     @movie = Movie.where(:id => the_id).at(0)
 
-    @movie.title = params.fetch("input_title", @movie.title)
-    @movie.year = params.fetch("input_year", @movie.year)
-    @movie.description = params.fetch("input_description", @movie.description)
-    @movie.released = params.fetch("input_released", false)
-    @movie.a_time = params.fetch("input_a_time", @movie.a_time)
-    @movie.a_date = params.fetch("input_a_date", @movie.a_date)
-    @movie.a_datetime = params.fetch("input_a_datetime", @movie.a_datetime)
+    @movie.title = params.fetch("title_from_query")
+    @movie.year = params.fetch("year_from_query")
+    @movie.description = params.fetch("description_from_query")
+    @movie.released = params.fetch("released_from_query", false)
+    @movie.a_time = params.fetch("a_time_from_query")
+    @movie.a_date = params.fetch("a_date_from_query")
+    @movie.a_datetime = params.fetch("a_datetime_from_query")
 
     if @movie.valid?
       @movie.save
@@ -51,8 +51,8 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    the_id = params.fetch("the_movie_id")
-    @movie = Movie.where({ :id => the_id }).first
+    the_id = params.fetch("id_from_path")
+    @movie = Movie.where({ :id => the_id }).at(0)
 
     @movie.destroy
 
